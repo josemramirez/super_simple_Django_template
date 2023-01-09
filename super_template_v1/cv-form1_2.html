@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content_wrapper %}
+
+  <div class=content-wrapper>
+    <!-- Content Header (Page header) -->
+    <div class=content-header>
+      <div class=container-fluid>
+        <div class=row mb-2>
+          <div class=col-sm-6>
+            <h1 class=m-0 text-dark>My Beautiful Excel App</h1>
+          </div><!-- /.col -->
+          <div class=col-sm-6>
+
+
+<h2 class="font-weight-bolder mb-0"> Asi son los primeros nombres de mensajes: <br>
+
+
+	{% for t in mgs_noti %}
+    	   1- {{ t.tipomensaje }} <br>
+           2- {{ t.denombre }}.  <br>
+           3- {{ t.hacecuanto }} días <br>
+	{% endfor %}
+
+</h2>
+
+</p>
+
+
+<!------------------------------------------------------------->
+<!--- Como introducir form manualmente, no declarado,   ------->
+<!------------------------------------------------------------->
+	   <form class="multisteps-form__form mb-8"  method="POST">
+    		
+		{% csrf_token %}
+    		{{ form.as_p }}
+
+    		<input type="submit" value="Enviar">
+	  
+            </form>
+<!------------------------------------------------------------->
+<!------------------------------------------------------------->
+<!------------------------------------------------------------->
+
+
+
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content -->
+  </div>
+
+{% endblock %}

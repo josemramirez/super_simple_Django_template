@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content_wrapper %}
+
+  <div class=content-wrapper>
+    <!-- Content Header (Page header) -->
+    <div class=content-header>
+      <div class=container-fluid>
+        <div class=row mb-2>
+          <div class=col-sm-6>
+            <h1 class=m-0 text-dark>My title1</h1>
+          </div><!-- /.col -->
+          <div class=col-sm-6>
+
+
+<h2 class="font-weight-bolder mb-0"> Here my form data: <br>
+</h2>
+</p>
+
+<!-------------------------------------------------------------->
+<!---------------- Messages Model--- --------------------------->
+
+	{% for t in mgs_noti %}
+    	   1- {{ t.typeofmessage }} <br>
+           2- {{ t.fromname }}.  <br>
+           3- {{ t.howlong }} días <br>
+	{% endfor %}
+
+<!-------------------------------------------------------------->
+<!---------------- END Messages Model -- ----------------------->
+<!-------------------------------------------------------------->
+
+
+<!------------------------------------------------------------->
+<!--- Como introducir form manualmente, no declarado,   ------->
+<!------------------------------------------------------------->
+	   <form class="multisteps-form__form mb-8"  method="POST">
+    		
+		{% csrf_token %}
+    		{{ form.as_p }}
+
+    		<input type="submit" value="Send">
+	  
+            </form>
+<!------------------------------------------------------------->
+<!------------------------------------------------------------->
+<!------------------------------------------------------------->
+
+
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content -->
+  </div>
+
+{% endblock %}
